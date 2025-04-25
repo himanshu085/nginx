@@ -1,6 +1,6 @@
 ---
 - name: Install Nginx on AWS EC2 Hosts
-  hosts: aws_ec2
+  hosts: ubuntu_servers
   become: yes
 
   tasks:
