@@ -1,0 +1,14 @@
+plugin: amazon.aws.aws_ec2
+regions:
+  - us-east-1
+filters:
+  instance-state-name: running
+  tag:Name: test  # Adjusting the filter for the tag Name: ubuntu
+keyed_groups:
+  - key: tags.Name
+    prefix: tag
+hostnames:
+  - public-ip-address  # Using public IP as the hostname for accessibility
+compose:
+  ansible_host: public_ip_address  # Use the public IP address as ansible_host
+  ansible_python_interpreter: /usr/bin/python3  # Ensure the correct Python interpreter
